@@ -1,8 +1,7 @@
 {
   "AWSEBDockerrunVersion": 2,
-  "containerDefinitions": [
+  "containerDefinitions":[
     {
-
     "name": "amigoscode-react",
     "image": "mangara2023/amigoscode-react:latest",
     "essential": true,
@@ -16,7 +15,7 @@
     },
     {
       "name": "amigoscode-api",
-      "image": "mangara2023/amigoscode-api:13.06.2025.06.50.32",
+      "image": "mangara2023/amigoscode-api:13.06.2025.08.48.44",
       "essential": true,
       "memory": 512,
       "portMappings": [
@@ -28,7 +27,7 @@
       "environment": [
         {
           "name": "SPRING_DATASOURCE_URL",
-          "value": "jdbc:postgresql://awseb-e-sqmha7drm6-stack-awsebrdsdatabase-wlpih17r0yxi.c18ooqo8w58t.us-west-2.rds.amazonaws.com:5432/customer"
+          "value": "jdbc:postgresql://awseb-e-nqawkgvum2-stack-awsebrdsdatabase-ixpvoz5abrys.c18ooqo8w58t.us-west-2.rds.amazonaws.com:5432/customer"
         }
       ]
     }
