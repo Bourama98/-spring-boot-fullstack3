@@ -30,6 +30,8 @@ jobs:
     steps:
 
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
       - name: Send Slack Message
         run: >
           curl -X POST -H 'Content-type: application/json'
