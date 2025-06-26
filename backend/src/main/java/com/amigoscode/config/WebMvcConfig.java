@@ -11,37 +11,25 @@ import java.util.List;
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 
-//    @Value("#{ '${cors.allowed-origins}'.split(',') }")
-//    private List<String> allowedOrigins;
-//    @Value("#{ '${cors.allowed-methods}'.split(',')}")
-//    private List<String> allowedMethods;
-//    @Value("#{'*'.split(',')}")
-//    private List<String> allowedHeaders;
-//    @Value("#{'*'.split(',')}")
-//    private List<String> exposedHeaders;
+    @Value("#{ '${cors.allowed-origins}'.split(',') }")
+    private List<String> allowedOrigins;
+    @Value("#{ '${cors.allowed-methods}'.split(',')}")
+    private List<String> allowedMethods;
+    @Value("#{'*'.split(',')}")
+    private List<String> allowedHeaders;
+    @Value("#{'*'.split(',')}")
+    private List<String> exposedHeaders;
 
-//    @Override
-//    public void addCorsMappings(CorsRegistry registry) {
-//        CorsRegistration corsRegistration = registry.addMapping("/api/**");
-//
-//        allowedOrigins.forEach(corsRegistration::allowedOrigins);
-//        allowedMethods.forEach(corsRegistration::allowedMethods);
-//        allowedHeaders.forEach(corsRegistration::allowedHeaders);
-//        exposedHeaders.forEach(corsRegistration::exposedHeaders);
-//
-//
-//
-//
-//
-//    }
-
-    @Value("${cors.allowed-origins}")
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/**")
-                .allowedOrigins("http://http://my-api2-env.eba-pd3scz3q.us-west-2.elasticbeanstalk.com") // or "*" for all
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                .allowedHeaders("*")
-                .allowCredentials(true);
+        CorsRegistration corsRegistration = registry.addMapping("/api/**");
+
+        allowedOrigins.forEach(corsRegistration::allowedOrigins);
+        allowedMethods.forEach(corsRegistration::allowedMethods);
+        allowedHeaders.forEach(corsRegistration::allowedHeaders);
+        exposedHeaders.forEach(corsRegistration::exposedHeaders);
+
+
     }
+
 }
