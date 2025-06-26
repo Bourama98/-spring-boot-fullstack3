@@ -15,9 +15,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
     private List<String> allowedOrigins;
     @Value("#{ '${cors.allowed-methods}'.split(',')}")
     private List<String> allowedMethods;
-    @Value("#{'${cors.allowed-headers}'.split(',')}")
+    @Value("#{'*'.split(',')}")
     private List<String> allowedHeaders;
-    @Value("#{'${cors.exposed-headers}'.split(',')}")
+    @Value("#{'*'.split(',')}")
     private List<String> exposedHeaders;
     @Value("${cors.allow-credentials}")
     private boolean allowCredentials;
