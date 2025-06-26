@@ -15,7 +15,7 @@
     },
     {
       "name": "amigoscode-api",
-      "image": "mangara2023/amigoscode-api:13.06.2025.08.48.44",
+      "image": "mangara2023/amigoscode-api:26.06.2025.10.42.32",
       "essential": true,
       "memory": 512,
       "portMappings": [
