@@ -192,7 +192,7 @@
 						<image>eclipse-temurin:24</image>
 						<platforms>
 <!--							<platform>-->
-<!--								<architecture>arm64</architecture>-->
+<!--								<architecture>arm64</architecture> 24.0.1+9-->
 <!--								<os>linux</os>-->
 <!--							</platform>-->
 							<platform>
@@ -200,7 +200,7 @@
 								<os>linux</os>
 							</platform>
 							<platform>
-								<architecture>x86-64</architecture>
+								<architecture>x86_64</architecture>
 								<os>linux</os>
 							</platform>
 
