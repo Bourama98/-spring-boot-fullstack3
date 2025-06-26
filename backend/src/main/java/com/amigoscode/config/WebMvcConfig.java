@@ -19,6 +19,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
     private List<String> allowedHeaders;
     @Value("#{'${cors.exposed-headers}'.split(',')}")
     private List<String> exposedHeaders;
+    @Value("${cors.allow-credentials}")
+    private boolean allowCredentials;
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         CorsRegistration corsRegistration = registry.addMapping("/api/**");
@@ -27,6 +29,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
         allowedMethods.forEach(corsRegistration::allowedMethods);
         allowedHeaders.forEach(corsRegistration::allowedHeaders);
         exposedHeaders.forEach(corsRegistration::exposedHeaders);
+        corsRegistration.allowCredentials(allowCredentials);
+
+
 
 
     }
