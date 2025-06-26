@@ -199,6 +199,9 @@
 								<architecture>amd64</architecture>
 								<os>linux</os>
 							</platform>
+							<platform>
+								<architecture>x86_64</architecture>
+							</platform>
 						</platforms>
 					</from>
 					<to>
