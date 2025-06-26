@@ -15,7 +15,7 @@
     },
     {
       "name": "amigoscode-api",
-      "image": "mangara2023/amigoscode-api:26.06.2025.10.42.32",
+      "image": "mangara2023/amigoscode-api:latest",
       "essential": true,
       "memory": 512,
       "portMappings": [
@@ -27,7 +27,7 @@
       "environment": [
         {
           "name": "SPRING_DATASOURCE_URL",
-          "value": "jdbc:postgresql://awseb-e-nqawkgvum2-stack-awsebrdsdatabase-ixpvoz5abrys.c18ooqo8w58t.us-west-2.rds.amazonaws.com:5432/customer"
+          "value": "jdbc:postgresql://awseb-e-nqawkgvum2-stack-awsebrdsdatabase-gwjgrkpabawy.c18ooqo8w58t.us-west-2.rds.amazonaws.com:5432/customer"
         }
       ]
     }

@@ -5,6 +5,6 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    allowedHosts:'ALl'
+    allowedHosts:'my-api2-env.eba-pd3scz3q.us-west-2.elasticbeanstalk.com'
   }
 })

@@ -112,7 +112,7 @@ jobs:
       - name: Send Slack Message
         run: >
           curl -X POST -H 'Content-type: application/json'
-          --data '{"text":" :github-check-mark: :party_blob: Commiting to repo http://http://my-api2-env.eba-v4gt95ih.us-west-2.elasticbeanstalk.com/  :party_blob::github-check-mark:"}'
+          --data '{"text":" :github-check-mark: :party_blob: Commiting to repo http://my-api2-env.eba-pd3scz3q.us-west-2.elasticbeanstalk.com/  :party_blob::github-check-mark:"}'
           ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Send Slack Message
         if: always()
