@@ -201,6 +201,7 @@
 							</platform>
 							<platform>
 								<architecture>x86_64</architecture>
+								<os>linux</os>
 							</platform>
 						</platforms>
 					</from>
