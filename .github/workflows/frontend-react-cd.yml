@@ -49,11 +49,11 @@ jobs:
           ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Update Dockerrun.aws.json react image tag with new build numberAdd commentMore actions
         run: |
-            echo "Dockerrun.aws.json before updating tag"
-            cat ../../Dockerrun.aws.json
-            sed -i -E 's_(amigoscode/amigoscode-react:)([^"]*)_\1'${{ steps.build-number.outputs.BUILD_NUMBER }}'_' ../../Dockerrun.aws.json
-            echo "Dockerrun.aws.json after updating tag"
-            cat ../../Dockerrun.aws.json
+          echo "Dockerrun.aws.json before updating tag"
+          cat ../../Dockerrun.aws.json
+          sed -i -E 's_(amigoscode/amigoscode-react:)([^"]*)_\1'${{ steps.build-number.outputs.BUILD_NUMBER }}'_' ../../Dockerrun.aws.json
+          echo "Dockerrun.aws.json after updating tag"
+          cat ../../Dockerrun.aws.json
       - name: Send Slack Message Add comment More actions
         run: >
           curl -X POST -H 'Content-type: application/json' 
@@ -62,27 +62,27 @@ jobs:
       - name: Deploy to Elastic BeanstalkAdd commentMore actions
         uses: einaregilsson/beanstalk-deploy@v21
         with:
-            aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-            aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            application_name: ${{ secrets.EB_APPLICATION_NAME }}
-            environment_name: ${{ secrets.EB_ENVIRONMENT_NAME }}
-            version_label: ${{ steps.build-number.outputs.BUILD_NUMBER }}
-            version_description: ${{ github.SHA }}
-            region: ${{ secrets.EB_REGION }}
-            deployment_package: Dockerrun.aws.json
-            wait_for_environment_recovery: 60
-      - name: Send Slack MessageAdd commentMore actions
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          application_name: ${{ secrets.EB_APPLICATION_NAME }}
+          environment_name: ${{ secrets.EB_ENVIRONMENT_NAME }}
+          version_label: ${{ steps.build-number.outputs.BUILD_NUMBER }}
+          version_description: ${{ github.SHA }}
+          region: ${{ secrets.EB_REGION }}
+          deployment_package: Dockerrun.aws.json
+          wait_for_environment_recovery: 60
+      - name: Send Slack Message Add comment More actions
         run: >
-            curl -X POST -H 'Content-type: application/json' 
-            --data '{"text":":githubloading: Committing to repo https://github.com/amigoscode/spring-boot-full-stack/"}' 
-            ${{ secrets.SLACK_WEBHOOK_URL }}
+          curl -X POST -H 'Content-type: application/json' 
+          --data '{"text":":githubloading: Committing to repo https://github.com/amigoscode/spring-boot-full-stack3/"}' 
+          ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Commit and push Dockerrun.aws.jsonAdd commentMore actions
         run: |
-            git config user.name github-actions
-            git config user.email github-actions@github.com
-            git add ../../Dockerrun.aws.json
-            git commit -m "Update Dockerrun.aws.json docker image with new tag ${{ steps.build-number.outputs.BUILD_NUMBER }}"
-            git push
+          git config user.name github-actions
+          git config user.email ${{ github.actor }}@users.noreply.github.com
+          git add ../../Dockerrun.aws.json
+          git commit -m "Update Dockerrun.aws.json docker image with new tag ${{ steps.build-number.outputs.BUILD_NUMBER }}"
+          git push
       - name: Send Slack MessageAdd commentMore actions
         run: >
           curl -X POST -H 'Content-type: application/json' 
