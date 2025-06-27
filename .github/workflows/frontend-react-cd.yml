@@ -82,6 +82,7 @@ jobs:
         run: |
           if git diff-index --quiet HEAD; then
              echo "No changes to commit."
+             exit 0
           else
             git config user.name github-actions
             git config user.email ${{ github.actor }}@users.noreply.github.com
@@ -89,6 +90,7 @@ jobs:
             git add ../../.ci/build-publish.sh
             git commit -m "Update Dockerrun.aws.json docker image with new tag ${{ steps.build-number.outputs.BUILD_NUMBER }}"
             git push
+            exit 0
           fi
       - name: Send Slack MessageAdd comment More actions
         run: >
