@@ -45,7 +45,7 @@ jobs:
       - name: Send Slack MessageAdd commentMore actions
         run: >
           curl -X POST -H 'Content-type: application/json' 
-          --data '{"text":":docker: Image tag:${{steps.build-number.outputs.BUILD_NUMBER}} pushed to https://hub.docker.com/repository/docker/${{ secrets.DOCKERHUB_USERNAME }}/amigoscode-react"}'
+          --data '{"text":":docker: Image tag:${{ steps.build-number.outputs.BUILD_NUMBER }} pushed to https://hub.docker.com/repository/docker/${{ secrets.DOCKERHUB_USERNAME }}/amigoscode-react"}'
       - name: Update Dockerrun.aws.json react image tag with new build numberAdd commentMore actions
         run: |
             echo "Dockerrun.aws.json before updating tag"
