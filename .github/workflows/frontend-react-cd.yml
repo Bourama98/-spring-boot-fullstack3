@@ -14,7 +14,7 @@ jobs:
       run:
         working-directory: ./frontend/react
     steps:
-      - uses: actions/checkout@4
+      - uses: actions/checkout@v4
       - name: Slack commit message and sha
         run: >
           curl -X POST -H 'Content-type: application/json'
