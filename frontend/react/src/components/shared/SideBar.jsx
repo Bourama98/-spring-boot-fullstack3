@@ -129,7 +129,7 @@ const NavItem = ({icon, children, ...rest}) => {
                 )}
                 {children}
             </Flex>
-        </Link>
+        // </Link>
     );
 };
 
